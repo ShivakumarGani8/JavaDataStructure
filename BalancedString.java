@@ -36,25 +36,26 @@ import java.util.Stack;
 class BalancedString{
     public static void main(String[] args) {
         Scanner scan=new Scanner(System.in);
-        int N=scan.nextInt();
-        for(int i=0;i<N;i++){
-            String input=scan.next();
-            System.out.println(isBalancedString(input));
-        }
+        System.out.println("Enter a string to check");
+        String input=scan.next();
+        if(isBalancedString(input))
+        System.out.println("The given string is Balanced");
+        else
+        System.out.println("The given string is Not Balanced");
     }
     public static boolean isBalancedString(String input){
         if(input.length()%2!=0)
         return false;
-        Stack balance=new Stack<Character>();
+        Stack<Character> stack=new Stack<>();
         for(int i=0;i<input.length();i++){
             char newChar=input.charAt(i);
             if(newChar=='(' || newChar=='[' || newChar=='{' ){ //Pushing the charachter to Stack if it is a opening bracket(it'll not cause in any problem if it is opening brakcet).
-                balance.push(newChar);    
+                stack.push(newChar);    
             }
             else{
                 char lastChar=' ';
-                if(balance.size()>=1)
-                    lastChar= (char) balance.pop(); // Read & remove the lastly added character to stack(If there is a char exists in stack).
+                if(stack.size()>=1)
+                    lastChar= (char) stack.pop(); // Read & remove the lastly added character to stack(If there is a char exists in stack).
                 switch(newChar){ // If the new character is closing bracket and not opened preor to close it then, return false(String is not balanced)
                     case ')': if(lastChar!='('){return false ;}
                     break;
