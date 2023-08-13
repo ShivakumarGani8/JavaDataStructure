@@ -21,25 +21,25 @@ Constraints:
 import java.util.ArrayList;
 class DailyTemperatures{
     public static void main(String[] args) {
-        int[] example1={73,74,75,71,69,72,76,73};
-        int[] example2={30,40,50,60};
-        int[] example3={30,60,90};
-        System.out.println(daysToBeWaited(example1)); //[1, 1, 4, 2, 1, 1, 0, 0]
-        System.out.println(daysToBeWaited(example2)); //[1, 1, 1, 0]
-        System.out.println(daysToBeWaited(example3)); //[1, 1, 0]
+        int[] temperatures1={73,74,75,71,69,72,76,73};
+        int[] temperatures2={30,40,50,60};
+        int[] temperatures3={30,60,90};
+        System.out.println(daysToBeWaited(temperatures1)); //[1, 1, 4, 2, 1, 1, 0, 0]
+        System.out.println(daysToBeWaited(temperatures2)); //[1, 1, 1, 0]
+        System.out.println(daysToBeWaited(temperatures3)); //[1, 1, 0]
     }
     public static ArrayList<Integer> daysToBeWaited(int[] temperatures){
-        ArrayList<Integer> result=new ArrayList<>();//Temp arraylist to store the days
+        ArrayList<Integer> answer=new ArrayList<>();//Temp arraylist to store the days
         for(int i=0;i<temperatures.length;i++){ //Traverse from 1st element
-            int days=0; //If no element is greater in array days will be zero
+            int days=0; //If no temperature is greater in array days will be zero
             for(int j=i+1;j<temperatures.length;j++){ //Traversing through next elements
-                if(temperatures[j]>temperatures[i]){ //If any of the next element(j) is greater than the current element(i)
+                if(temperatures[j]>temperatures[i]){ //If any of the next temperature(j) is greater than the current temperature(i)
                     days=j-i; //Substract days when the temperature is greater
                     break;
                 }
             }
-            result.add(days); //Add days to temp arraylist
+            answer.add(days); //Add days to temp arraylist
         }
-        return result;
+        return answer;
     }
 }
