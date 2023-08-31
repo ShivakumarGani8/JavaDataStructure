@@ -5,13 +5,13 @@ Given a String of length n. return the longest palindrome sub string in given st
 
 public class LongestPalindromeSubString {
     public static void main(String[] args) {
-        String str = "a";
+        String str = "abaabba";
         System.out.println(longestPalindrome(str));
     }
     public static String longestPalindrome(String str){
         String longest="";
         for(int i=0;i<str.length();i++){
-            for(int j=i;j<str.length();j++){
+            for(int j=i+longest.length();j<str.length();j++){
                 String subString=str.substring(i,j+1);
                 int start=0;
                 int end=subString.length()-1;
