@@ -1,5 +1,7 @@
 /*
 Given an unsorted integer array nums, return the smallest missing positive integer.
+Positive integers starts from 1-N.
+If all elements from 1-N present in the array return N+1;
 */
 
 import java.util.*;
@@ -11,7 +13,7 @@ public class FirstMissingPositive {
 
     public static int firstMissingPositive(int[] nums) {
         TreeSet<Integer> set=new TreeSet<>();
-        for(int i: nums){
+        for(int i: nums){//Adds only positve elements to the set
             if(i<=0)
             continue;
             else set.add(i);
