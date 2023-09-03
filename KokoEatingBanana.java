@@ -1,3 +1,8 @@
+/*
+KokoEatingBanana-
+Given array of banana's per pile and int h maximum time kooku can eat banana's. calculate the min banana's kooku should eat per hour to complete all banana's(In 1 hour kooku can eat max 1 pile).
+*/
+
 import java.util.Arrays;
 
 class KokoEatingBanana{
