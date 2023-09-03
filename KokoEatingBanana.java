@@ -7,31 +7,29 @@ class KokoEatingBanana{
         System.out.println(findMinimumBananasToEat(piles,h));
     }
 
-    //Let's assume KOKO will start eating (total-bananas)/total piles.
+    //Let's assume KOKO will start eating (total-bananas)/(max-time).
     public static long findMinimumBananasToEat(int[] piles,int h){
         Arrays.sort(piles);
         long totalBananas=0;
-        for(int i: piles){ 
+        for(int i: piles){
             totalBananas+=i;
         }
-        long minBananas=totalBananas/h +1; //Koko eating minimum bananas per hour
-        if(minBananas==0)//If minBananas=0 start eating from 1
+        long minBananas=totalBananas/h; 
+        if(minBananas==0) //If minBananas==0 then start from 1
             minBananas=1;
         while(true){
-            double timeTaken=0;//Total time taken to eat 
+            double timeTaken=0;
             for(int i=0;i<piles.length;i++){
-                timeTaken += Math.floor(piles[i]/minBananas);
+                timeTaken += piles[i]/minBananas; //Total time taken to complete all piles
                 if(piles[i]%minBananas > 0)
                     timeTaken++;
-                if(timeTaken>h){
+                if(timeTaken>h){ //If time exceeding break for current minBananas and increase by 1.
                     minBananas++;
-                    continue;
+                    break;
                 }
             }
             if(timeTaken<=h)
-                return minBananas;
-            else
-            minBananas++;
+                return (int)minBananas; //return time when timetaken<=h
         }
     }
 }
