@@ -15,13 +15,13 @@ class KokoEatingBanana{
     //Let's assume KOKO will start eating (total-bananas)/(max-time).
     public static long findMinimumBananasToEat(int[] piles,int h){
         Arrays.sort(piles);
-        long totalBananas=0;
-        for(int i: piles){
-            totalBananas+=i;
-        }
-        long minBananas=totalBananas/h; 
-        if(minBananas==0) //If minBananas==0 then start from 1
-            minBananas=1;
+        // long totalBananas=0;
+        // for(int i: piles){
+        //     totalBananas+=i; //to Take average of banana's
+        // }
+        // long minBananas=totalBananas/h; 
+        // if(minBananas==0) //If minBananas==0 then start from 1
+        long minBananas=1;
         while(true){
             double timeTaken=0;
             for(int i=0;i<piles.length;i++){
