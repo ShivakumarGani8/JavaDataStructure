@@ -25,12 +25,12 @@ public class ValidSudoku {
                 continue;
                 //Validating in rows
                 for(int row=i+1;row<board.length;row++){
-                    if(element==board[i][row])
+                    if(element==board[row][j])
                     return false;
                 }
                 //Validating in columns
                 for(int column=j+1;column<board[i].length;column++){
-                    if(element==board[column][i])
+                    if(element==board[i][column])
                     return false;
                 }
                 //Validating box
