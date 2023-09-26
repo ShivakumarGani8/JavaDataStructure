@@ -31,7 +31,7 @@ public class ValidPalindrome {
     }
     //In this code we will compare String from both the ends if somewhere the characters are miss matching will return false else true in the end 
     public static boolean isValidPalindrome(String input){
-        String str=input.replaceAll("\\W", "").toLowerCase(); //For removing any spaces and special characters
+        String str=input.replaceAll("[^A-Za-z0-9]", "").toLowerCase(); //For removing any spaces and special characters
         int forward=0; //For indexing from the first character
         int backward=str.length()-1; //For indexing from the last character
         while(forward<str.length()/2){
