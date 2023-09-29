@@ -45,6 +45,7 @@ public class SumOfThreeNumbers {
 
         
     }
+    // In this problem we'll keep one index(i) as a fixed point and traverse the array inbetween index+1 and from last element of the array
     public static List getTriplets(int[] nums){
         List<List<Integer>> list=new ArrayList<>();
         Arrays.sort(nums);
@@ -52,19 +53,18 @@ public class SumOfThreeNumbers {
             int leftToRight=i+1;
             int rightToLeft=nums.length-1;
             int temp=0;
-            while( leftToRight<rightToLeft ){
+            while( leftToRight<rightToLeft ){ //Break the loop when both the ends cross each other
                 int sumOfElements= nums[i]+nums[leftToRight]+nums[rightToLeft];
                 if(sumOfElements==0){
                     List<Integer> subList=new ArrayList<>();
                     subList.add(nums[i]);
-                    subList.add(nums[leftToRight++]);
+                    subList.add(nums[leftToRight++]); //Shifting to any elment at right or left will keep the loop to continue else, it'll get stuck at same position
                     subList.add(nums[rightToLeft]);
                     if(!list.contains(subList))
-                        list.add(subList);
-                    
-                }else if(sumOfElements<0){
+                        list.add(subList);   
+                }else if(sumOfElements<0){ // If sum<0 then, we have to shift to next element at left
                     leftToRight++;
-                }else if(sumOfElements>0){
+                }else if(sumOfElements>0){ // If sum>0 then, we have to shift to previous element at right
                     rightToLeft--;
                 }
             }

@@ -1,4 +1,3 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 /*
 Two strings,  and , are called anagrams if they contain all the same characters in the same frequencies. The test is not case-sensitive. For example, the anagrams of CAT are CAT, ACT, tac, TCA, aTC, and CtA.
@@ -17,11 +16,11 @@ public class Anagram {
         System.out.println(isAnagram(a2, b2));
     }
     static boolean isAnagram(String a, String b) {
-        if(a.length()!=b.length())
+        if(a.length()!=b.length()) //If both string are inequal length
         return false;
         
         for(int i=0;i<a.length();i++){
-            String ch= Character.toString(a.charAt(i)) ;
+            String ch= Character.toString(a.charAt(i)) ; 
             int freq1=0;
             int freq2=0;
             for(int j=0; j<b.length();j++){

@@ -34,6 +34,7 @@ Then, the fleet (speed 2) and the car starting at 4 (speed 1) become one fleet, 
 */
 
 import java.util.*;
+
 public class CarFleet {
     public static void main(String[] args) {
         int target1=12;
@@ -48,9 +49,13 @@ public class CarFleet {
         int[] position3={3};
         int[] speed3={3};
 
-        System.out.println(carFleets(target1, position1, speed1));
-        System.out.println(carFleets(target2, position2, speed2));
-        System.out.println(carFleets(target3, position3, speed3));
+        int target4=20;
+        int[] position4={6,2,17};
+        int[] speed4={3,9,2};
+        // System.out.println(carFleets(target1, position1, speed1));
+        // System.out.println(carFleets(target2, position2, speed2));
+        // System.out.println(carFleets(target3, position3, speed3));
+        System.out.println(carFleets(target4, position4, speed4));
     }
     public static int carFleets(int target, int[] positions, int[] speeds){
         int fleets=0;        
@@ -65,7 +70,11 @@ public class CarFleet {
             for(int position:positionSet){
                 int speed=currentPositions.get(position);
                 int newPosition=position+speed;
-                if(!nextPositions.containsKey(newPosition)){
+                if(newPosition>target){
+                    fleets++;
+                    continue;
+                }
+                else if(!nextPositions.containsKey(newPosition)){
                     nextPositions.put(newPosition , speed);
                 }else if(nextPositions.get(newPosition)>speed){
                     nextPositions.put(newPosition , speed);
@@ -74,11 +83,12 @@ public class CarFleet {
             currentPositions.clear();
             currentPositions.putAll(nextPositions);;
             nextPositions.clear();
-            int initialSize=currentPositions.size();
-            currentPositions.remove(target);
-            if(initialSize>currentPositions.size())
-            fleets++;
+            if(currentPositions.containsKey(target)){
+                fleets++;
+                currentPositions.remove(target);
+            }
         }
+
         return fleets;
     }
     

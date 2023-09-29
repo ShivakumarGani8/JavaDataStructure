@@ -28,6 +28,18 @@ public class MaxSlidingWindow {
         int[] result=new int[nums.length-k+1]; //According to the input the length of the result = nums.length-k+1
 
         //Our last sliding array will be starting from length-slidng array length
+        // for(int i=0;i<=nums.length-k;i++){
+        //     int slide=0; // starting index of sliding element
+        //     int max=nums[i];
+        //     while(slide<k){
+        //         int element=nums[i+slide]; // Take element in each slide
+        //         max= Math.max(max,element); //compare max
+        //         slide++;
+        //     }
+        //     result[i]=max; //Adding elements to resultant array.
+        // }
+
+        //Our last sliding array will be starting from length-slidng array length
         for(int i=0;i<=nums.length-k;i++){
             int slide=0; // starting index of sliding element
             int max=nums[i];
@@ -38,6 +50,7 @@ public class MaxSlidingWindow {
             }
             result[i]=max; //Adding elements to resultant array.
         }
+
         // List<Integer> maxValues= new ArrayList<>();
         // for(int i=0;i<=nums.length-k;i++){
         //     int slide=0;
