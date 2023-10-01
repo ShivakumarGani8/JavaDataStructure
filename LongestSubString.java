@@ -40,7 +40,6 @@ public class LongestSubString{
             }
             max=Math.max(max, set.size()); //Store max length
         }
-
         return max;
     }
 }

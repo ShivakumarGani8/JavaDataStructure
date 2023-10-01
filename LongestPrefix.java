@@ -11,7 +11,6 @@ public class LongestPrefix {
         String prefix="";
         int minLen=strs[0].length();
         String minString=strs[0];
-
         //Find String with minimum length
         for(int i=1;i<strs.length;i++){
             if(strs[i].length()<minLen){

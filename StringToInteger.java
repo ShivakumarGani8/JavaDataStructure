@@ -10,28 +10,28 @@ public class StringToInteger {
     }
 
     //This function will convert any string into an int if integer exists in the String
-    // public static int myAtoi(String s) {
-    //     int num=0;
-    //     s=s.trim();
-    //     String[] strings=s.split(" ");
-    //     for(String str: strings){
-    //         if(Pattern.matches("[-+]?[0-9]+", str)){
-    //             num = Integer.parseInt(str);
-    //             return num;
-    //         }
-    //     }
-    //     return 0;
-    // }
-
-    //This function convers string into long if long exists as a first element except spaces
-    public static long myAtoi(String s) {
-        long num=0;
+    public static int myAtoi(String s) {
+        int num=0;
         s=s.trim();
-        String[] strings=s.split("[ ]+");
-        if(Pattern.matches("[-+]?[0-9]+", strings[0])){
-            num = Long.parseLong(strings[0]);
-            return num;
+        String[] strings=s.split(" ");
+        for(String str: strings){
+            if(Pattern.matches("[-+]?[0-9]+", str)){
+                num = Integer.parseInt(str);
+                return num;
+            }
         }
         return 0;
     }
+
+    //This function convers string into long if long exists as a first element except spaces
+    // public static long myAtoi(String s) {
+    //     long num=0;
+    //     s=s.trim();
+    //     String[] strings=s.split("[ ]+");
+    //     if(Pattern.matches("[-+]?[0-9]+", strings[0])){
+    //         num = Long.parseLong(strings[0]);
+    //         return num;
+    //     }
+    //     return 0;
+    // }
 }
