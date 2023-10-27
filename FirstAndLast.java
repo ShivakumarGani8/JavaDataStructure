@@ -4,21 +4,30 @@ class FirstAndLast{
         System.out.println(searchRange(nums,8));
     }
     
+    //In this approch we'll use binary search
         public static int[] searchRange(int[] nums, int target) {
             int[] positions={-1,-1};
             int start=0, end=nums.length-1;
             while(start<=end){
                 int mid=(start+end)/2;
-                if(nums[mid]==target){
+                if(nums[mid]==target){ //Once if we find target.
                     int first=mid, last=mid;
-                    while(first>0 && nums[first]==target){
+                    int index=mid;
+
+                    //Looping until the first element is equal to target
+                    while(first>=0 && nums[first]==target){
+                        index=first;
                         first--;
                     }
-                    while( last<nums.length && nums[last]==target)
-                        last++;
+                    positions[0]=index; //Once != target add last index that matches condition.
+                    index=mid;
 
-                    positions[0]=first+1;
-                    positions[1]=last-1;
+                    //Looping until the last element is equal to target
+                    while( last<nums.length && nums[last]==target){
+                        index=last;
+                        last++;
+                    }
+                    positions[1]=index; //Once != target add last index that matches condition.
                     return positions;
                 }
                 if(nums[mid]<target)
